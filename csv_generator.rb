@@ -32,12 +32,12 @@ class CSVGenerator
         cat_code = cats.last[:id]
         dx_code = code.gsub(cat_code, '')
         # edit this line to reformat/rearrange your CSV as desired
-        newline = "#{cat_code},#{dx_code},#{code},\"#{abbrev}\", \"#{full}\",\"#{cats.last[:title]}\""
+        newline = "\"#{cat_code}\",\"#{dx_code}\",\"#{code}\",\"#{abbrev}\",\"#{full}\",\"#{cats.last[:title]}\""
         full_csv_file.puts newline
       else
         # add to categories CSV if not a specific diagnosis
         cats << {id: code, title: full}
-        newline = "#{code},\"#{full}\""
+        newline = "\"#{code}\",\"#{full}\""
         cats_file.puts newline
       end
     end
